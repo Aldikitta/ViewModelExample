@@ -1,13 +1,15 @@
 package com.aldikitta.viewmodelexample
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MainActivityViewModel(startingTotal: Int) : ViewModel() {
     private var count = 0
-    private var total = 0
+//    private var total = 0
+    var total = MutableLiveData<Int>()
 
     init {
-        total = startingTotal
+        total.value = startingTotal
     }
 
     fun getCurrentCount(): Int {
@@ -20,12 +22,10 @@ class MainActivityViewModel(startingTotal: Int) : ViewModel() {
         return ++count
     }
 
-    fun getTotal(): Int {
-        return total
-    }
+
 
     fun setTotal(input: Int) {
-        total += input
+        total.value = (total.value)?.plus(input)
     }
 
 

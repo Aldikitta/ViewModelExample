@@ -9,22 +9,22 @@ class MainActivityViewModel(startingTotal: Int) : ViewModel() {
     init {
         total = startingTotal
     }
-    fun getCurrentCount(): Int{
+
+    fun getCurrentCount(): Int {
         return count
 
     }
 
 
-
-    fun getUpdatedCount(): Int{
+    fun getUpdatedCount(): Int {
         return ++count
     }
 
-    fun getTotal():Int{
+    fun getTotal(): Int {
         return total
     }
 
-    fun setTotal(input:Int){
+    fun setTotal(input: Int) {
         total += input
     }
 

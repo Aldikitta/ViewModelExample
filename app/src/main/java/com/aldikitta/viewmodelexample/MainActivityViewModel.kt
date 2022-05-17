@@ -1,32 +1,28 @@
 package com.aldikitta.viewmodelexample
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MainActivityViewModel(startingTotal: Int) : ViewModel() {
-    private var count = 0
-//    private var total = 0
-    var total = MutableLiveData<Int>()
+class MainActivityViewModel(startingTotal: Int, startingCount: Int) : ViewModel() {
+    private var count = MutableLiveData<Int>()
+    val countData: LiveData<Int>
+        get() = count
+
+    private var total = MutableLiveData<Int>()
+    val totalData: LiveData<Int>
+        get() = total
 
     init {
         total.value = startingTotal
+        count.value = startingCount
     }
 
-    fun getCurrentCount(): Int {
-        return count
-
+    fun getUpdatedCount() {
+        count.value = (count.value)?.plus(1)
     }
-
-
-    fun getUpdatedCount(): Int {
-        return ++count
-    }
-
-
 
     fun setTotal(input: Int) {
         total.value = (total.value)?.plus(input)
     }
-
-
 }

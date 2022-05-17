@@ -3,4 +3,4 @@ ViewModel is part of jetpack suite library, it used to hold the data that use in
 
 ViewModelFactory is use to pass value in constructor in Cutom ViewModel
 
-LiveData is use to make the view always get up to date data whenever the data is changed
+LiveData is use to make the view always get up to data whenever the data is changed
